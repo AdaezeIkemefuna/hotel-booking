@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {
   HiCalendarDays,
   HiOutlineCog6Tooth,
-  HiOutlineHome,
+  // HiOutlineHome,
   HiOutlineHomeModern,
   HiOutlineUsers,
 } from 'react-icons/hi2';
@@ -57,12 +57,12 @@ function MainNav() {
   return (
     <nav>
       <NavList>
-        <li>
+        {/* <li>
           <StyledNavlink to='dashboard'>
             <HiOutlineHome />
             <span>Home</span>
           </StyledNavlink>
-        </li>
+        </li> */}
         <li>
           <StyledNavlink to='bookings'>
             <HiCalendarDays />

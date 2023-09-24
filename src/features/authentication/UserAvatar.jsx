@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { useGetUser } from './hooks/useGetUser';
 
 const StyledUserAvatar = styled.div`
   display: flex;
@@ -19,3 +20,19 @@ const Avatar = styled.img`
   border-radius: 50%;
   outline: 2px solid var(--color-grey-100);
 `;
+
+export default function UserAvatar() {
+  const { user } = useGetUser();
+  const {
+    user_metadata: { fullName, avatar },
+  } = user;
+  return (
+    <StyledUserAvatar>
+      <Avatar
+        src={avatar || 'default-user.jpg'}
+        alt={`Avatar of ${fullName}`}
+      />
+      <span style={{ textTransform: 'capitalize' }}>{fullName}</span>
+    </StyledUserAvatar>
+  );
+}
