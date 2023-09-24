@@ -44,8 +44,8 @@ export default function App() {
                 </ProtectedRoutes>
               }
             >
-              <Route index element={<Navigate replace to={'dashboard'} />} />
-              <Route index path='dashboard' element={<Dashboard />} />
+              <Route index element={<Navigate replace to={'login'} />} />
+              <Route path='dashboard' element={<Dashboard />} />
               <Route path='account' element={<Account />} />
               <Route path='bookings' element={<Bookings />} />
               <Route path='booking/:bookingId' element={<Booking />} />
@@ -55,7 +55,7 @@ export default function App() {
               <Route path='settings' element={<Settings />} />
               <Route path='users' element={<NewUsers />} />
             </Route>
-            <Route path='login' element={<Login />} />
+            <Route index path='login' element={<Login />} />
             <Route path='*' element={<PageNotFound />} />
           </Routes>
         </Router>
