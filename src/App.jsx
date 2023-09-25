@@ -15,7 +15,7 @@ import GlobalStyles from './styles/GlobalStyles';
 import NewUsers from './pages/Users';
 import AppLayout from './layout/AppLayout';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-// import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Toaster } from 'react-hot-toast';
 import Booking from './pages/Booking';
 import Checkin from './pages/Checkin';
@@ -33,7 +33,7 @@ export default function App() {
   return (
     <DarkModeProvider>
       <QueryClientProvider client={queryClient}>
-        {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+        <ReactQueryDevtools initialIsOpen={false} />
         <GlobalStyles />
         <Router>
           <Routes>
@@ -44,8 +44,8 @@ export default function App() {
                 </ProtectedRoutes>
               }
             >
-              <Route index element={<Navigate replace to={'login'} />} />
-              <Route path='dashboard' element={<Dashboard />} />
+              <Route index element={<Navigate replace to={'dashboard'} />} />
+              <Route index path='dashboard' element={<Dashboard />} />
               <Route path='account' element={<Account />} />
               <Route path='bookings' element={<Bookings />} />
               <Route path='booking/:bookingId' element={<Booking />} />
@@ -55,7 +55,7 @@ export default function App() {
               <Route path='settings' element={<Settings />} />
               <Route path='users' element={<NewUsers />} />
             </Route>
-            <Route index path='login' element={<Login />} />
+            <Route path='login' element={<Login />} />
             <Route path='*' element={<PageNotFound />} />
           </Routes>
         </Router>
